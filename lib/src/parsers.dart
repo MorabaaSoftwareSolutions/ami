@@ -97,7 +97,7 @@ mixin SocketMessageParser on LifeCycle, Reader implements Parser {
       onReadGreeting(_buffer.first);
       _buffer.clear();
       _status = HandleStatus.idle;
-    } else if (_status == HandleStatus.done) {
+    } else if (_status == HandleStatus.done && _buffer.isNotEmpty) {
       if (isGreeting(_buffer.first)) {
         onReadGreeting(_buffer.first);
         _buffer.removeAt(0);

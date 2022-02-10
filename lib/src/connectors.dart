@@ -93,6 +93,7 @@ mixin TCPSocketConnector on LifeCycle, Parser implements Connector {
       print('ERROR $e');
       _controller.addError(e);
       _controller.add(false);
+      throw Exception(e);
     }
   }
 
